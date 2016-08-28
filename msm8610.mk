@@ -77,8 +77,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf
 
 # Boot animation
-TARGET_SCREEN_HEIGHT := 960
-TARGET_SCREEN_WIDTH := 540
+#TARGET_SCREEN_HEIGHT := 960
+#TARGET_SCREEN_WIDTH := 540
 
 PRODUCT_PACKAGES += \
     gralloc.msm8610 \

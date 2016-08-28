@@ -71,7 +71,7 @@ TARGET_PROVIDES_LIBLIGHT := true
 TARGET_NO_RPC := true
 
 # Global flags
-COMMON_GLOBAL_CFLAGS += -DMOTOROLA_UIDS -DQCOM_HARDWARE -DCAMERA_VENDOR_L_COMPAT
+BOARD_NO_SECURE_DISCARD := true
 TARGET_NR_SVC_SUPP_GIDS := 32
 
 # Display
@@ -98,7 +98,7 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 BOARD_USES_ALSA_AUDIO := true
 AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
 AUDIO_FEATURE_ENABLED_NEW_SAMPLE_RATE := true
-USE_CUSTOM_AUDIO_POLICY := 1
+#USE_CUSTOM_AUDIO_POLICY := 1
 
 # FM
 TARGET_QCOM_NO_FM_FIRMWARE := true
@@ -107,9 +107,11 @@ TARGET_QCOM_NO_FM_FIRMWARE := true
 BOARD_USES_QCOM_HARDWARE := true
 BOARD_USES_QC_TIME_SERVICES := true
 TARGET_RIL_VARIANT := caf
+TARGET_NEEDS_TEXT_RELOCATIONS := true
+
 
 # Hardware tunables framework
-BOARD_HARDWARE_CLASS := $(COMMON_PATH)/cmhw/
+#BOARD_HARDWARE_CLASS := $(COMMON_PATH)/cmhw/
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
@@ -151,10 +153,10 @@ ifeq ($(HOST_OS),linux)
 endif
 
 # SELinux
-include device/qcom/sepolicy/sepolicy.mk
-BOARD_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy
+#include device/qcom/sepolicy/sepolicy.mk
+#BOARD_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy
 
-MALLOC_IMPL := dlmalloc
+
 
 # Enable dex-preoptimization to speed up first boot sequence
 ifeq ($(HOST_OS),linux)
