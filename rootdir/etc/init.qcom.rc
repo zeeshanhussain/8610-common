@@ -65,6 +65,10 @@ on fs
     # Set permissions for BL logs
     chmod 0640 /dev/block/bootdevice/by-name/logs
     chown root system /dev/block/bootdevice/by-name/logs
+    wait /dev/block/platform/msm_sdcc.1/by-name/modem
+    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/modem /firmware ro,nosuid,nodev,barrier=0
+    wait /dev/block/platform/msm_sdcc.1/by-name/fsg  
+    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/fsg  /fsg   ro,nosuid,nodev,barrier=0
 
 on post-fs-data
     mkdir /data/tombstones 0771 system system
